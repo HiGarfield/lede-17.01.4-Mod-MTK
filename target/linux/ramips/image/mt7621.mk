@@ -30,7 +30,7 @@ define Device/wr1200js
   DTS := WR1200JS
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := Youhua WR1200JS
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt7603e kmod-mt76x2e luci-app-mtwifi
 endef
 TARGET_DEVICES += wr1200js
 
@@ -38,7 +38,7 @@ define Device/a3004ns
   DTS := A3004NS
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := A3004NS
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt76
 endef
 TARGET_DEVICES += a3004ns
 
@@ -54,7 +54,7 @@ define Device/ac1200pro
   DTS := AC1200pro
   IMAGE_SIZE := $(ralink_default_fw_size_32M)
   DEVICE_TITLE := Digineo AC1200 Pro
-  DEVICE_PACKAGES := kmod-usb3 kmod-ata-core kmod-ata-ahci
+  DEVICE_PACKAGES := kmod-usb3 kmod-ata-core kmod-ata-ahci kmod-mt76
 endef
 TARGET_DEVICES += ac1200pro
 
@@ -75,7 +75,7 @@ define Device/dir-860l-b1
 	seama-seal -m "signature=wrgac13_dlink.2013gui_dir860lb" | \
 	check-size $$$$(IMAGE_SIZE)
   DEVICE_TITLE := D-Link DIR-860L B1
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt76
 endef
 TARGET_DEVICES += dir-860l-b1
 
@@ -83,7 +83,7 @@ define Device/firewrt
   DTS := FIREWRT
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := Firefly FireWRT
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt76
 endef
 TARGET_DEVICES += firewrt
 
@@ -92,6 +92,7 @@ define Device/mt7621
   BLOCKSIZE := 64k
   IMAGE_SIZE := $(ralink_default_fw_size_4M)
   DEVICE_TITLE := MediaTek MT7621 EVB
+  DEVICE_PACKAGES := kmod-mt76
 endef
 TARGET_DEVICES += mt7621
 
@@ -99,7 +100,7 @@ define Device/newifi-d1
   DTS := Newifi-D1
   IMAGE_SIZE := $(ralink_default_fw_size_32M)
   DEVICE_TITLE := Newifi D1
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt76
 endef
 TARGET_DEVICES += newifi-d1
 
@@ -107,7 +108,7 @@ define Device/newifi-d2
   DTS := Newifi-D2
   IMAGE_SIZE := $(ralink_default_fw_size_32M)
   DEVICE_TITLE := Newifi D2
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt7603e kmod-mt76x2e luci-app-mtwifi
 endef
 TARGET_DEVICES += newifi-d2
 
@@ -115,7 +116,7 @@ define Device/ghl-r-001
   DTS := GHL-R-001
   IMAGE_SIZE := $(ralink_default_fw_size_32M)
   DEVICE_TITLE := GeHua GHL-R-001
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt7603e kmod-mt76x2e luci-app-mtwifi
 endef
 TARGET_DEVICES += ghl-r-001
 
@@ -123,7 +124,7 @@ define Device/pbr-m1
   DTS := PBR-M1
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := PBR-M1
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci kmod-mt76
 endef
 TARGET_DEVICES += pbr-m1
 
@@ -144,7 +145,7 @@ TARGET_DEVICES += re6500
 define Device/sap-g3200u3
   DTS := SAP-G3200U3
   DEVICE_TITLE := STORYLiNK SAP-G3200U3
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt76
 endef
 TARGET_DEVICES += sap-g3200u3
 
@@ -152,14 +153,14 @@ define Device/sk-wb8
   DTS := SK-WB8
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := SamKnows Whitebox 8
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport uboot-envtools
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport uboot-envtools kmod-mt76
 endef
 TARGET_DEVICES += sk-wb8
 
 define Device/timecloud
   DTS := Timecloud
   DEVICE_TITLE := Thunder Timecloud
-  DEVICE_PACKAGES := kmod-usb3
+  DEVICE_PACKAGES := kmod-usb3 kmod-mt76
 endef
 TARGET_DEVICES += timecloud
 
@@ -202,7 +203,7 @@ define Device/wf-2881
   UBINIZE_OPTS := -E 5
   IMAGE/sysupgrade.bin := append-kernel | append-ubi | append-metadata | check-size $$$$(IMAGE_SIZE)
   DEVICE_TITLE := NETIS WF-2881
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-mt76
 endef
 TARGET_DEVICES += wf-2881
 
@@ -210,7 +211,7 @@ define Device/witi
   DTS := WITI
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := MQmaker WiTi
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci kmod-mt76
 endef
 TARGET_DEVICES += witi
 
@@ -218,7 +219,7 @@ define Device/wndr3700v5
   DTS := WNDR3700V5
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := Netgear WNDR3700v5
-  DEVICE_PACKAGES := kmod-usb3
+  DEVICE_PACKAGES := kmod-usb3 kmod-mt76
 endef
 TARGET_DEVICES += wndr3700v5
 
@@ -227,6 +228,7 @@ define Device/wsr-1166
   IMAGE/sysupgrade.bin := trx | pad-rootfs | append-metadata
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := Buffalo WSR-1166
+  DEVICE_PACKAGES := kmod-mt76
 endef
 TARGET_DEVICES += wsr-1166
 
@@ -234,6 +236,7 @@ define Device/wsr-600
   DTS := WSR-600
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := Buffalo WSR-600
+  DEVICE_PACKAGES := kmod-mt76
 endef
 TARGET_DEVICES += wsr-600
 
@@ -241,7 +244,7 @@ define Device/zbt-wg2626
   DTS := ZBT-WG2626
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := ZBT WG2626
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci kmod-mt76
 endef
 TARGET_DEVICES += zbt-wg2626
 
@@ -249,7 +252,7 @@ define Device/zbt-wg3526
   DTS := ZBT-WG3526
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := ZBT WG3526
-  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport kmod-ata-core kmod-ata-ahci kmod-mt76
 endef
 TARGET_DEVICES += zbt-wg3526
 
