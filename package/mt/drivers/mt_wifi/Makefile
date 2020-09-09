@@ -21,7 +21,9 @@ define Package/mt_wifi
   SECTION:=net
   CATEGORY:=Network
   TITLE:=MTK wifi AP config
-  DEPENDS:=@TARGET_ramips +wireless-tools +kmod-mac80211
+  DEPENDS:=@TARGET_ramips +wireless-tools \
+	+kmod-mac80211 \
+	+@DRIVER_11AC_SUPPORT +@DRIVER_11N_SUPPORT +@DRIVER_11W_SUPPORT
   SUBMENU:=Wireless
 endef
 
